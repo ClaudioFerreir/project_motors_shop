@@ -37,19 +37,28 @@ $(document).ready(function() {
       },
       telefone: {
         required: true
+      },
+      mensagem: {
+        required: true
+      },
+      veiculoDeInteresse: {
+        required: false
       }
     },
     messages: {
       nome: 'Por favor, preencha o seu nome',
       email: 'Por favor, preencha o seu e-mail',
-      telefone: 'Por favor, preencha o seu telefone'
+      telefone: 'Por favor, preencha o seu telefone',
+      mensagem: 'Por favor, preencha a sua mensagem'
     },
     submitHandler: function(form) {
       console.log(form);
     },
-    InvalidHandler: function(event, validador) {
-      let camposIncorretos = validador.numberOfInvalids();
-      console.log(camposIncorretos);
+    invalidHandler: function(event, validator) {
+      let errors = validator.numberOfInvalids();
+      if (errors) {
+        alert(`Existem ${errors} erros no formulário`)
+      }
     }
   })
 
