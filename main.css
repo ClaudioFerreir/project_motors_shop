@@ -25,8 +25,7 @@ footer {
 }
 
 .scrolled {
-  background-color: rgba(25, 42, 86, 0.2); 
-  color: black;
+  background-color: rgba(25, 42, 86, 1); 
 }
 
 /*Mantem a navbar durante a rolagem */
@@ -186,3 +185,13 @@ footer li img {
   height: 32px;
 }
 
+/*error messages*/
+input.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+
+label.error {
+  color: red;
+  font-weight: bold;
+}

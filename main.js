@@ -11,4 +11,46 @@ $(document).ready(function() {
     $('nav').slideToggle();
   })
 
+
+  //movimentação do scroll mudança de cor do header
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 0) {
+      $('header').addClass('scrolled');
+    } else {
+      $('header').removeClass('scrolled');
+    }
+  })
+
+  //mascara do telefone
+  $('#telefone').mask('(00) 00000-0000')
+
+  //validação do formulário (plugin jquery validate)
+  //trabalha com os names e não com os ids
+  $('form').validate({
+    rules: {
+      nome: {
+        required: true
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      telefone: {
+        required: true
+      }
+    },
+    messages: {
+      nome: 'Por favor, preencha o seu nome',
+      email: 'Por favor, preencha o seu e-mail',
+      telefone: 'Por favor, preencha o seu telefone'
+    },
+    submitHandler: function(form) {
+      console.log(form);
+    },
+    InvalidHandler: function(event, validador) {
+      let camposIncorretos = validador.numberOfInvalids();
+      console.log(camposIncorretos);
+    }
+  })
+
 });
